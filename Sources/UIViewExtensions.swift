@@ -459,7 +459,7 @@ extension UIView {
     /// EZSwiftExtensions
     public func toImage () -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
-        drawHierarchy(in: bounds, afterScreenUpdates: false)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img!
